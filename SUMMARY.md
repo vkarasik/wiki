@@ -14,3 +14,11 @@
 
 * [Redirect](php/redirect.md)
 
+## wordpress
+
+* [Add custom script.js](wordpress/add-custom-script.js.md)
+
+## Разное
+
+* [Почта для домена Яндекс](raznoe/pochta-dlya-domena-yandeks.md)
+
