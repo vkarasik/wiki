@@ -22,3 +22,7 @@
 
 * [Почта для домена Яндекс](raznoe/pochta-dlya-domena-yandeks.md)
 
+## html&css
+
+* [Вертикальное выравнивание](html-and-css/vertikalnoe-vyravnivanie.md)
+
