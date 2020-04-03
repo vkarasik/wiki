@@ -8,6 +8,7 @@
 
 ## Bitrix
 
+* [Удалить записи из Журнала событий](bitrix/udalit-zapisi-iz-zhurnala-sobytii.md)
 * [Резервное копирование](bitrix/rezervnoe-kopirovanie.md)
 
 ## PHP
