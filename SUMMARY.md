@@ -17,6 +17,7 @@
 
 ## wordpress
 
+* [Plugins](wordpress/plugins.md)
 * [Add custom script.js](wordpress/add-custom-script.js.md)
 
 ## Разное
