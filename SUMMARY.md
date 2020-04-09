@@ -8,6 +8,7 @@
 
 ## Bitrix
 
+* [Фильтр по пользовательскому свойству](bitrix/filtr-po-polzovatelskomu-svoistvu.md)
 * [Удалить записи из Журнала событий](bitrix/udalit-zapisi-iz-zhurnala-sobytii.md)
 * [Резервное копирование](bitrix/rezervnoe-kopirovanie.md)
 
