@@ -4,6 +4,7 @@
 
 ## JavaScript
 
+* [Webpack](javascript/webpack.md)
 * [Date](javascript/date.md)
 
 ## Bitrix
