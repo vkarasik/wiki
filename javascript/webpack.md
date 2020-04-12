@@ -90,7 +90,7 @@ module.exports = {
       title: 'My Webpack', // игнорируется еслм указан template
       template: './index.html' // файл шаблон, если не задан, то будет создаваться чистый html5 документ
     }),
-    new CleanWebpackPlugin() // 
+    new CleanWebpackPlugin()
   ],
   
   module: {
@@ -119,23 +119,92 @@ module.exports = {
 };
 ```
 
+### resolve
+
+Позволяет не указывать расширение файла при указании пути.
+
+```javascript
+resolve: {
+    extensions: ['.js', '.json', '.png', '.css']
+}
+```
+
+```javascript
+import Post from './module.js';
+import './css/styles.css';
+import './img/logo.png';
+
+// Теперь можем писать так:
+
+import Post from './module';
+import './css/styles';
+import './img/logo';
+```
+
+Позволяет указать alias для путей
+
+```javascript
+import '../../../css/styles.css';
+import '../img/logo.png';
+
+// Теперь можем писать так:
+
+import '@css/styles';
+import '@img/logo';
+```
+
+```javascript
+resolve: {
+    alias: {
+        '@img': path.resolve(__dirname, 'src/img'),
+        '@css': path.resolve(__dirname, 'src/css'),
+        '@': path.resolve(__dirname, 'src'),
+    }
+}
+```
+
 ## Плагины
 
-#### Работа с файлами .html
+### Работа с файлами .html
 
 ```text
 npm install --save-dev html-webpack-plugin
 ```
 
-#### Очистка dist/
+Для настройки добавляем в `webpack.config.js`
+
+```javascript
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+  
+  // . . .
+  
+plugins: [
+  new HtmlWebpackPlugin({
+    title: 'My Webpack', // игнорируется еслм указан template
+    template: './index.html' // файл шаблон, если не задан, то будет создаваться чистый html5 документ
+  })
+]
+```
+
+### Очистка dist/
 
 ```text
 npm install --save-dev clean-webpack-plugin
 ```
 
+```javascript
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+
+// . . .
+
+plugins: [
+  new CleanWebpackPlugin()
+]
+```
+
 ## Loaders
 
-#### css-loader
+### css-loader
 
 Добавляют возможность работать с `import` файлами других типов: css, less и тд.
 
@@ -149,7 +218,7 @@ npm install --save-dev css-loader
 import './css/styles.css';
 ```
 
-#### style-loader
+### style-loader
 
 Вставляет стили на старницу. Может делать это разными способами в зависимости от настроек. По умолчанию стили будут динамически вставлены через javascript inject при загрузке страницы в `<style>` 
 
@@ -173,7 +242,7 @@ module: {
 }
 ```
 
-#### file-loader
+### file-loader
 
 Добавляет возможнось импортировать и собирать различные файлы.
 
@@ -194,5 +263,46 @@ module: {
         }],
     }]
 }
+```
+
+### xml-loader
+
+Работа с xml
+
+```bash
+npm install --save xml-loader
+```
+
+```bash
+module: {
+    rules: [{
+        test: /\.xml$/i,
+        use: ['xml-loader'],
+    }]
+}
+```
+
+```javascript
+import xml from './xml/export.xml';
+```
+
+### csv-loader
+
+```bash
+npm install -save-dev csv-loader
+npm install -save-dev papaparse
+```
+
+```bash
+module: {
+    rules: [{
+        test: /\.csv$/i,
+        use: ['csv-loader'],
+    }]
+}
+```
+
+```javascript
+import csv from './csv/export.csv';
 ```
 
