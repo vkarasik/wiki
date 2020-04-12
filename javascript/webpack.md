@@ -4,6 +4,8 @@ description: '#webpak #node #npm'
 
 # Webpack
 
+## Пакеты
+
 ```bash
 npm init
 ```
@@ -23,7 +25,19 @@ npm i -D webpack webpack-cli
   }
 ```
 
-### package.json
+### normalize.css
+
+```text
+npm install normalize.css
+```
+
+Теперь в css файле можно указать путь импорта
+
+```javascript
+@import '~normalize.css'; // тильда это импорт из node_modules
+```
+
+## package.json
 
 Для настройки команд используется свойство `scripts`
 
@@ -31,11 +45,19 @@ npm i -D webpack webpack-cli
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch" // следить за изменениями
   }
 ```
 
-### webpack.config.js
+Для того чтобы наш пакет был приватным есть специальное свойство. Также можно убрать строчку `main`
+
+```javascript
+// "main": "app.js",
+  "private": true,
+```
+
+## webpack.config.js
 
 В зависимости от указаных опций в этом файле, webpack будет собирать проект.
 
@@ -82,12 +104,22 @@ module.exports = {
               },
               'css-loader'
           ] // порядок важен: справа налево. Первым файл пропустится через css-loader
+      },
+      {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [{
+              loader: 'file-loader',
+              options: {
+                  // name: '[name].[ext]', // настройки нейминга. По умолчанию название генерируется как хэш
+                  outputPath: 'img' // выходная папка
+              }
+          }],
       }]
   }
 };
 ```
 
-### Плагины
+## Плагины
 
 #### Работа с файлами .html
 
@@ -103,13 +135,15 @@ npm install --save-dev clean-webpack-plugin
 
 ## Loaders
 
-Добавляют возможность работать с `import` файлами других типов: css, less и тд.
-
 #### css-loader
+
+Добавляют возможность работать с `import` файлами других типов: css, less и тд.
 
 ```text
 npm install --save-dev css-loader
 ```
+
+Тперь в index.js можно писать так:
 
 ```javascript
 import './css/styles.css';
@@ -117,13 +151,48 @@ import './css/styles.css';
 
 #### style-loader
 
-Вставляет стили на старницу. Может делать это разными способами в зависимости от настроек. По умолчанию стили будут вставлены через javascript inject при загрузке страницы в `<style>` 
+Вставляет стили на старницу. Может делать это разными способами в зависимости от настроек. По умолчанию стили будут динамически вставлены через javascript inject при загрузке страницы в `<style>` 
 
 ```javascript
 npm install --save-dev style-loader
 ```
 
+```javascript
+module: {
+    rules: [{
+        test: /\.css$/, // регулярное выражение
+        use: [{
+                loader: 'style-loader',
+                options: {
+                    injectType: 'styleTag'
+                }
+            },
+            'css-loader'
+        ] // порядок важен: справа налево. Первым файл пропустится через css-loader
+    }]
+}
+```
 
+#### file-loader
 
+Добавляет возможнось импортировать и собирать различные файлы.
 
+```text
+$ npm install file-loader --save-dev
+```
+
+```javascript
+module: {
+    rules: [{
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [{
+            loader: 'file-loader',
+            options: {
+                // name: '[name].[ext]', // настройки нейминга. По умолчанию название генерируется как хэш
+                outputPath: 'img' // выходная папка
+            }
+        }],
+    }]
+}
+```
 
