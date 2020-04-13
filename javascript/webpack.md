@@ -259,6 +259,37 @@ plugins: [
 ]
 ```
 
+### MiniCssExtractPlugin
+
+Подключение css как файла
+
+```text
+npm install --save-dev mini-css-extract-plugin
+```
+
+```javascript
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// . . .
+
+plugins: [
+    new MiniCssExtractPlugin({
+        filename: '[name].[contenthash].css'
+    })
+]
+
+module: {
+    rules: [{
+            test: /\.css$/, // регулярное выражение
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+                options: {},
+            }, 'css-loader']
+        }
+    ]
+}
+```
+
 ## Loaders
 
 ### css-loader
@@ -277,7 +308,7 @@ import './css/styles.css';
 
 ### style-loader
 
-Вставляет стили на старницу. Может делать это разными способами в зависимости от настроек. По умолчанию стили будут динамически вставлены через javascript inject при загрузке страницы в `<style>` 
+Вставляет стили на страницу. Может делать это разными способами в зависимости от настроек. По умолчанию стили будут динамически вставлены через javascript inject при загрузке страницы в `<style>` 
 
 ```javascript
 npm install --save-dev style-loader
