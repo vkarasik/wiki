@@ -144,6 +144,16 @@ import './img/logo';
 Позволяет указать alias для путей
 
 ```javascript
+resolve: {
+    alias: {
+        '@img': path.resolve(__dirname, 'src/img'),
+        '@css': path.resolve(__dirname, 'src/css'),
+        '@': path.resolve(__dirname, 'src'),
+    }
+}
+```
+
+```javascript
 import '../../../css/styles.css';
 import '../img/logo.png';
 
@@ -153,13 +163,41 @@ import '@css/styles';
 import '@img/logo';
 ```
 
+### optimization
+
+Для того чтобы сторонние библиотеки которые мы импортируем в разных файлах подключались один раз и не дублировались можно использовать настройку:
+
 ```javascript
-resolve: {
-    alias: {
-        '@img': path.resolve(__dirname, 'src/img'),
-        '@css': path.resolve(__dirname, 'src/css'),
-        '@': path.resolve(__dirname, 'src'),
+optimization: {
+    splitChunks: {
+        chunks: 'all' // include all types of chunks
     }
+}
+```
+
+### devServer
+
+Live сервер для режима разработки. При работе с ним папка `dist` недоступна.
+
+```text
+npm install -D webpack-dev-server
+```
+
+```javascript
+// package.json
+
+"scripts": {
+  "start": "webpack-dev-server --mode development --open"
+}
+```
+
+```javascript
+// webpack.config.js
+
+devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
 }
 ```
 
@@ -199,6 +237,25 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 plugins: [
   new CleanWebpackPlugin()
+]
+```
+
+### Копирование файлов
+
+```bash
+$ npm install copy-webpack-plugin --save-dev
+```
+
+```javascript
+const CopyPlugin = require('copy-webpack-plugin');
+
+// . . .
+
+plugins: [
+    new CopyPlugin([{
+        from: path.resolve(__dirname, 'src/**/*.php'),
+        to: path.resolve(__dirname, 'dist')
+    }])
 ]
 ```
 
