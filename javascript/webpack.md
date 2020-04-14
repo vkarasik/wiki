@@ -25,6 +25,44 @@ npm i -D webpack webpack-cli
   }
 ```
 
+### cross-env
+
+Пакет нужен для того чтобы установить переменную NODE\_ENV и отслеживать в каком режиме работает сборка. Это удебно там, куда нужно передать bool в зависимости от режима сборки. Например при development можно не сжимать файлы а при production сжимать.
+
+```bash
+npm install --save-dev cross-env
+```
+
+```javascript
+// package.json
+
+"scripts": {
+  "dev": "cross-env NODE_ENV=development webpack --mode development",
+  "build": "cross-env NODE_ENV=production webpack --mode production",
+  "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
+  "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open"
+}
+```
+
+```javascript
+// webpack
+
+// Определить в каком режиме находимся
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev;
+
+// далее используем эти переменные. Например:
+
+new HtmlWebpackPlugin({
+    title: 'My Webpack',
+    template: './index.html',
+    minify: {
+        collapseWhitespace: isProd,
+        removeComments: isProd,
+    }
+}),
+```
+
 ### normalize.css
 
 ```text
@@ -259,7 +297,7 @@ plugins: [
 ]
 ```
 
-### MiniCssExtractPlugin
+### Вставка файла css
 
 Подключение css как файла
 
@@ -274,7 +312,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 plugins: [
     new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css'
+        filename: 'css/[name].[contenthash].css'
     })
 ]
 
@@ -283,18 +321,43 @@ module: {
             test: /\.css$/, // регулярное выражение
             use: [{
                 loader: MiniCssExtractPlugin.loader,
-                options: {},
+                options: {
+                    // установка правильных путей для файлов подключеных в css
+                    publicPath: (resourcePath, context) => {
+                            return path.relative(path.dirname(resourcePath), context) + '/';
+                        }
+                },
             }, 'css-loader']
         }
     ]
 }
 ```
 
+### Минификация js
+
+```text
+npm install terser-webpack-plugin --save-dev
+```
+
+```javascript
+const TerserPlugin = require('terser-webpack-plugin');
+```
+
+### Минификация css
+
+```bash
+npm install --save-dev optimize-css-assets-webpack-plugin
+```
+
+```javascript
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+```
+
 ## Loaders
 
 ### css-loader
 
-Добавляют возможность работать с `import` файлами других типов: css, less и тд.
+Добавляет возможность работать с `import` файлами других типов: css, less и тд.
 
 ```text
 npm install --save-dev css-loader
@@ -304,6 +367,12 @@ npm install --save-dev css-loader
 
 ```javascript
 import './css/styles.css';
+```
+
+### less-loader
+
+```bash
+npm i -D less-loader
 ```
 
 ### style-loader
