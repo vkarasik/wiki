@@ -239,6 +239,18 @@ devServer: {
 }
 ```
 
+### Devtool
+
+`source-map` позволяет видеть исходные файлы при дебаге в консоли.
+
+```javascript
+// webpack.config.js
+
+devtool: isDev ? 'source-map' : ''
+```
+
+
+
 ## Плагины
 
 ### Работа с файлами .html
