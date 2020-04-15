@@ -5,6 +5,7 @@
 ## JavaScript
 
 * [Webpack](javascript/webpack.md)
+* [React](javascript/react.md)
 * [Date](javascript/date.md)
 
 ## Bitrix
