@@ -17,7 +17,19 @@ npm start
 
 ## JSX
 
-JSX — java script xml. Это html объекты которые можно использовать в js выражаениях.
+JSX — Java Script XML. Позволяет создавать элементы как html шаблоны, и использовать внутри них js выражения.
+
+```jsx
+const heading = <h1 className="site-heading">Hello, React</h1>
+
+// То же самое можно делать так:
+
+const heading = React.createElement('h1', { className: 'site-heading' }, 'Hello, React!')
+
+// Вставляем в контейнер
+
+ReactDOM.render(element, document.getElementById('root'));
+```
 
 
 
