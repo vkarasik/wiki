@@ -31,5 +31,6 @@ description: '#json #xml'
 ### Links
 
 [**https://ctrlq.org/code/20004-google-spreadsheets-json**](https://ctrlq.org/code/20004-google-spreadsheets-json)  
-****[**https://coderwall.com/p/duapqq/use-a-google-spreadsheet-as-your-json-backend**](https://coderwall.com/p/duapqq/use-a-google-spreadsheet-as-your-json-backend)
+****[**https://coderwall.com/p/duapqq/use-a-google-spreadsheet-as-your-json-backend**](https://coderwall.com/p/duapqq/use-a-google-spreadsheet-as-your-json-backend)  
+****[**https://habr.com/ru/company/englishdom/blog/343082/**](https://habr.com/ru/company/englishdom/blog/343082/)\*\*\*\*
 

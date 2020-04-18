@@ -32,5 +32,6 @@
 
 ## html&css
 
+* [meta viewport](html-and-css/meta-viewport.md)
 * [Вертикальное выравнивание](html-and-css/vertikalnoe-vyravnivanie.md)
 
