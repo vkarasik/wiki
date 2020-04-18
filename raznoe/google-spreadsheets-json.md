@@ -6,7 +6,7 @@ description: '#json #xml'
 
 ## Использование
 
-1. Создать таблицу
+1. Создать таблицу.
 2. Опуликовать. \(Файл → Опубликовать в интернете → Веб-страница\)
 3. Получить ID из адреса
 4. JSON: `https://spreadsheets.google.com/feeds/list/`**`SPREADSHEET_ID`**`/od6/public/basic?alt=json` 
