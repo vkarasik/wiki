@@ -75,6 +75,20 @@ npm install normalize.css
 @import '~normalize.css'; // тильда это импорт из node_modules
 ```
 
+### Babel
+
+```bash
+npm install --save-dev babel-loader @babel/core @babel/preset-env
+```
+
+`@babel/preset-env` определяет какой набор плагинов для траспиляции кода нужно использовать. Проще говоря какие возможности нового стандарта js транспилировать в поддерживаемы формат.
+
+```javascript
+// package.json
+
+"browserslist": "> 0.25%, not dead"
+```
+
 ## package.json
 
 Для настройки команд используется свойство `scripts`
@@ -250,6 +264,16 @@ devtool: isDev ? 'source-map' : ''
 ```
 
 
+
+### source-map
+
+Это возможность видеть исходные файлы при дебаге в консоли.
+
+```javascript
+// webpack.config.js
+
+devtool: isDev ? 'source-map' : '',
+```
 
 ## Плагины
 
