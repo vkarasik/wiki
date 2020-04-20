@@ -37,7 +37,13 @@ ReactDOM.render(element, document.getElementById('root'));
 
 Атрибуты также устанавливаются с помощью фигруных скобок. Класс приваивается артибутом `className`. Обработчики используют camelCase, например `onClick`
 
+При установке обработчика событий, метод присваеваем без скобок.
+
 ```jsx
+doSomething(){
+    console.log('Action')
+}
+
 <h1 className={name} onClick={doSomething}>Hello!</h1>
 ```
 
@@ -54,6 +60,24 @@ styles = {
 <h1 style={styles}>Hello!</h1>
 
 <h1 style={{ color: "blue" }}>
+```
+
+### Списки
+
+При передаче в качестве выражения массива или функции возвращающей массив, элементы извлекаются из него. Для того чтобы React мог следить за элементами списка, нужно присвоить каждому элементу `key`. Использовать в качесве `key`индекс элемента можно, но нежелательно, ибо они могут меняться, нужно что-то более уникальное. Уникальность должна быть только в пределах этого списка.
+
+```jsx
+render() {
+  return (
+    <React.Fragment>
+      <ul>
+        {['item1', 'item2'].map((i, index) => (
+          <li key={i + index.toString()}>{i}</li>
+        ))}
+      </ul>
+    </React.Fragment>
+  );
+}
 ```
 
 ## Компонент
@@ -102,4 +126,6 @@ class Counter extends Component {
 }
 ```
 {% endcode %}
+
+
 
