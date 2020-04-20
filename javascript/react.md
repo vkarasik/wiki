@@ -127,5 +127,13 @@ class Counter extends Component {
 ```
 {% endcode %}
 
+### setState\(\)
 
+Для записи в объект `state`используется метод `setState()` в который передается объект. Если свойство уже существует, оно перезапишется, если новое — добавится.
+
+```jsx
+increment() {
+    this.setState({ count: this.state.count + 1});
+}
+```
 
