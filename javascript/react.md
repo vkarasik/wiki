@@ -149,3 +149,18 @@ increment() {
 }
 ```
 
+### props
+
+Каждый компонент имеет свойство `props`, по сути это объект который содержит все \(кроме `key`\)атрибуты которые были присвоены комопненту.
+
+```jsx
+<Counter key={id} value={value} />
+
+class Counter extends Component {
+  state = {};
+  render() {
+    return <div>{this.props.value}</div>;
+  }
+}
+```
+
