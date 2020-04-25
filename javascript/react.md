@@ -154,6 +154,17 @@ class Counter extends Component {
 ```
 {% endcode %}
 
+Чтобы установить что-то в `state`можно использвать `constructor()`
+
+```jsx
+state = {}
+
+constructor(props){
+  super(props);
+  this.state = this.props.something
+}
+```
+
 ### setState\(\)
 
 Для записи в объект `state`используется метод `setState()` в который передается объект. Если свойство уже существует, оно перезапишется, если новое — добавится. Это метод сообщает что компонет изменится, React строит новый virtual dom и  сравнивает со старым. После, обновляет только изменения. 
@@ -179,6 +190,16 @@ class Counter extends Component {
 }
 ```
 
+В функциональном стиле, без `state`
+
+```jsx
+const MyComponent = (props) => {
+return ( <div>{props}</div> );
+}
+
+export default MyComponent;
+```
+
 ### props.children
 
 Если комопонет в JSX выражении содержит закрывающий тег, то все что находится внутри будет передано компоненту в свойстве `props.children`. 
@@ -189,5 +210,20 @@ class Counter extends Component {
 </Counter>
 ```
 
+### lifecycle
 
+Компонент проходит через несколько фаз в течении своего жизнененнгого цикла. Есть несколько методов которые можно добавить, и реакт будет автоматически вызывать их на каждой фазе. Эти методы называются Lifecycle Hooks. Это позволяет нам выполнять какие-то действия в нужный момент. Основные фазы и хуки:
+
+* Mounting \(монтирование\) — в этой фазе инстанс компонента создается и вставляется в DOM. 
+  * constructor
+  * render
+  * componentDidMount
+* Updating — фаза в которой меняется state или props
+
+  * render
+  * componentDidUpdate
+
+  Unmounting — фаза в которой компонент удаляется из DOM
+
+  * componentWillUnmount
 
