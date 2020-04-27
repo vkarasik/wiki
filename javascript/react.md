@@ -221,7 +221,7 @@ export default MyComponent;
 * Updating — фаза в которой меняется state или props
 
   * render
-  * componentDidUpdate
+  * componentDidUpdate \(prevProps, prevState\)
 
   Unmounting — фаза в которой компонент удаляется из DOM
 
