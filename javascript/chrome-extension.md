@@ -229,3 +229,13 @@ const notificationOptions = {
 chrome.notifications.create('notificationID', notificationOptions);
 ```
 
+## Debug
+
+* Отладка фоновых скриптов начинается здесь  [chrome://extensions/](chrome://extensions/)
+* Отладка попап скрипта через контекстное меню на иконке
+* Отладка контент скриптов через Sources → Content Scripts
+
+## Samples
+
+[https://developer.chrome.com/extensions/samples](https://developer.chrome.com/extensions/samples)
+
