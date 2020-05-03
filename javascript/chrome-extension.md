@@ -113,7 +113,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
 ### Content Scripts
 
-Файлы которые загружаются в контексте страницы и могут работать с ее DOM но не с JS. Такой код исполняется в так называемом «изолированом мире».
+Файлы CSS/JS которые загружаются в контексте страницы и могут работать с ее DOM. Такой код исполняется в так называемом «изолированом мире».
 
 Такие скрипты не могут использовать большую часть API, поэтому основной функционал реализуется за счет обмена сообщениями между background и popup скриптами. Например: контент скрипт может получить информацию из DOM страницы, отправляет ее в бэкраунд скрипт, например для записи в storage. Затем эту информацию использует popup, который может отправить сообщение в контент скрипт, поменять что-то в DOM страницы, так как сам он не иммеет доступа к DOM \(только к своему\).
 
@@ -137,19 +137,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 ]
 ```
 
-### tabs
-
-Позволяет получить массив объектов с инфо об открытых вкладках. Для получения активной вкладки можно использовать:
-
-```javascript
-chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-  alert(JSON.stringify(tabs));
-});
-```
-
-
-
-### background page
+### Background Script
 
 Страница, а точнее скрипт который выполняется в фоне и реагирует на события, например когда контент скрипт присылает сообщение. По другому может называться Event Page.
 
@@ -166,6 +154,28 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 ```
 {% endtab %}
 {% endtabs %}
+
+### Options Page
+
+Для настройки расширения можно использовать отдельную страницу, которая доступна через контекстное меню расширения, либо через страницу расширений.
+
+{% tabs %}
+{% tab title="manifest.json" %}
+```javascript
+"options_page": "options.html"
+```
+{% endtab %}
+{% endtabs %}
+
+### tabs
+
+Позволяет получить массив объектов с инфо об открытых вкладках. Для получения активной вкладки можно использовать:
+
+```javascript
+chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+  alert(JSON.stringify(tabs));
+});
+```
 
 ### contextMenus
 
@@ -201,18 +211,6 @@ chrome.storage.onChanged.addListener(function (changes, storageName) {
   changes.key.oldValue // старое значение ключа
 });
 ```
-
-### options page
-
-Для настройки расширения можно использовать отдельную страницу, которая доступна через контекстное меню расширения, либо через страницу расширений.
-
-{% tabs %}
-{% tab title="manifest.json" %}
-```javascript
-"options_page": "options.html"
-```
-{% endtab %}
-{% endtabs %}
 
 ### notifications
 
