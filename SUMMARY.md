@@ -7,7 +7,7 @@
 * [Chrome Extensions](javascript/chrome-extension.md)
 * [Webpack](javascript/webpack.md)
 * [React](javascript/react.md)
-* [Date](javascript/date.md)
+* [Java Script](javascript/date.md)
 
 ## Bitrix
 
