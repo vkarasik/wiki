@@ -37,26 +37,20 @@ ReactDOM.render(element, document.getElementById('root'));
 
 Атрибуты также устанавливаются с помощью фигруных скобок. Класс приваивается артибутом `className`. Обработчики используют camelCase, например `onClick`
 
-При установке обработчика событий, метод присваеваем без скобок. 
+```jsx
+<h1 className={name}>Hello!</h1>
+```
+
+### Обработчик события
+
+При установке обработчика событий, метод утанавливаем без скобок. 
 
 ```jsx
 doSomething(){
     console.log('Action')
 }
 
-<h1 className={name} onClick={doSomething}>Hello!</h1>
-```
-
-### Обработчик события
-
-Для передачи аргумента функции можно использовать стрелочную функцию
-
-```jsx
-doSomething = arg => {
-    console.log(arg)
-}
-
-<button onClick={ () => this.doSomething(arg) }>Hello!</button>
+<h1 className={name} onClick={this.doSomething}>Hello!</h1>
 ```
 
 Для того чтобы передать функции обработчику `this`, нужно в `counstructor`создать метод и вернуть в него функуцию с методом `.bind(this)` \(из прототипа\). Потому что методы объявленные в классе не привязаны к this.
@@ -72,6 +66,16 @@ handleIncrement() {
 }
 
 <button onClick={this.handleIncrement}>
+```
+
+Для передачи аргумента функции можно использовать стрелочную функцию.
+
+```jsx
+doSomething = arg => {
+    console.log(arg)
+}
+
+<button onClick={ () => this.doSomething(arg) }>Hello!</button>
 ```
 
 ### Стили

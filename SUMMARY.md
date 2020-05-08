@@ -7,7 +7,10 @@
 * [Chrome Extensions](javascript/chrome-extension.md)
 * [Webpack](javascript/webpack.md)
 * [React](javascript/react.md)
-* [Java Script](javascript/date.md)
+* [Java Script](javascript/date/README.md)
+  * [Functions](javascript/date/functions.md)
+  * [Arrays](javascript/date/arrays.md)
+  * [Objects](javascript/date/objects.md)
 
 ## Bitrix
 
@@ -33,8 +36,10 @@
 
 ## html&css
 
+* [SASS LESS](html-and-css/sass-less.md)
 * [meta viewport](html-and-css/meta-viewport.md)
 * [Вертикальное выравнивание](html-and-css/vertikalnoe-vyravnivanie.md)
+* [Grid](html-and-css/grid.md)
 
 ## Photoshop
 
