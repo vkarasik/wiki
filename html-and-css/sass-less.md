@@ -18,6 +18,10 @@ button {
 }
 ```
 
+{% hint style="info" %}
+Также см. maps
+{% endhint %}
+
 ## Nesting
 
 ```css
@@ -149,5 +153,24 @@ button {
 h1 {
     color: @colors[another];
 }
+```
+
+## Functions
+
+```css
+// SCSS
+$colors: (
+  'primary': red,
+  'another': blue,
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+button {
+  color: color(another);
+}
+
 ```
 
