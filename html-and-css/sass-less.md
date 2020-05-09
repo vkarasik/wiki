@@ -94,10 +94,22 @@ header {
     border: 1px solid @color;
 }
 
-h1 {
-    color: $primary-button;
-    .bordered(red)
+.colored{
+  color: red;
 }
+
+h1 {
+    .colored();
+    .bordered(red);
+}
+```
+
+{% hint style="info" %}
+В LESS миксин объявленный со скобками, не будет выведен в конечный CSS. Это аналогично placeholder в SASS. См. Extend
+{% endhint %}
+
+```css
+
 ```
 
 ## Extend
@@ -113,6 +125,16 @@ h1 {
 header {
   button {
     @extend .radius;
+  }
+}
+
+%bordered{ // Это объявление не попадет в CSS
+  border: 1px solid red;
+}
+
+header {
+  button {
+    @extend %bordered;
   }
 }
 
