@@ -67,3 +67,39 @@ body {
 @import './header';
 ```
 
+## Миксины
+
+С помощью миксинов можно «подмешивать» одни правила в другие. В миксины можно передавать агрументы.
+
+```css
+// SCSS
+@mixin bordered($color) {
+  border: 1px solid $color;
+}
+
+header {
+  button {
+    color: $primary-button;
+    @include bordered(red);
+  }
+}
+
+// LESS
+
+.bordered(@color) {
+    border: 1px solid @color;
+}
+
+h1 {
+    color: $primary-button;
+    .bordered(red)
+}
+
+```
+
+## Extend
+
+
+
+
+
