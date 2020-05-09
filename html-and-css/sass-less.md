@@ -94,12 +94,60 @@ h1 {
     color: $primary-button;
     .bordered(red)
 }
-
 ```
 
 ## Extend
 
+Наследование свойств из дугого класса.
 
+```css
+// SCSS
+.radius {
+  border-radius: 5px;
+}
 
+header {
+  button {
+    @extend .radius;
+  }
+}
 
+// LESS
+
+.radius {
+  border-radius: 5px;
+}
+
+header {
+  button {
+    &:extend(.radius);
+  }
+}
+```
+
+## Maps
+
+Переменные подобные объектам — key: value.
+
+```css
+// SCSS
+$colors: (
+  'primary': red,
+  'another': blue,
+);
+
+button {
+  color: map-get($colors, primary);
+}
+
+// LESS
+@colors: {
+    primary: red;
+    another: blue
+}
+
+h1 {
+    color: @colors[another];
+}
+```
 
