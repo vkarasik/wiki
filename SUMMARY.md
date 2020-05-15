@@ -36,7 +36,6 @@
 
 ## html&css
 
-* [px, em, rem](html-and-css/px-em-rem.md)
 * [SASS LESS](html-and-css/sass-less.md)
 * [meta viewport](html-and-css/meta-viewport.md)
 * [Вертикальное выравнивание](html-and-css/vertikalnoe-vyravnivanie.md)
