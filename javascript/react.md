@@ -43,7 +43,7 @@ ReactDOM.render(element, document.getElementById('root'));
 
 ### Обработчик события
 
-При установке обработчика событий, метод утанавливаем без скобок. 
+При установке обработчика событий, метод утанавливаем без скобок — т.е. передаем ссылку на функцию.
 
 ```jsx
 doSomething(){
@@ -58,7 +58,7 @@ doSomething(){
 ```jsx
 constructor() {
   super();
-  this.handleIncrement = this.handleIncrement.bind(this);
+  this.handleIncrement = this.handleIncrement.bind(this); // привяжем this явно
 }
 
 handleIncrement() {
@@ -66,6 +66,17 @@ handleIncrement() {
 }
 
 <button onClick={this.handleIncrement}>
+
+// Другой способ передать this 
+// используя факт что стрелочная функция не теряет this
+// Здесь мы используем свойства классов. Оно доступно не во всех браузерах
+
+handleIncrement = () => {
+  console.log('clicked', this);
+};
+
+
+
 ```
 
 Для передачи аргумента функции можно использовать стрелочную функцию.
