@@ -4,6 +4,7 @@
 
 ## JavaScript
 
+* [Internet Explorer](javascript/internet-explorer.md)
 * [Chrome Extensions](javascript/chrome-extension.md)
 * [Webpack](javascript/webpack.md)
 * [React](javascript/react.md)
