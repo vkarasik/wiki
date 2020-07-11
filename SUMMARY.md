@@ -31,6 +31,7 @@
 
 ## Разное
 
+* [Debugging Android Devices](raznoe/debugging-android-devices.md)
 * [Google Spreadsheets JSON](raznoe/google-spreadsheets-json.md)
 * [htaccess](raznoe/htaccess.md)
 * [Почта для домена Яндекс](raznoe/pochta-dlya-domena-yandeks.md)
