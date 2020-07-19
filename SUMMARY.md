@@ -31,6 +31,7 @@
 
 ## Разное
 
+* [Wget](raznoe/wget.md)
 * [Debugging Android Devices](raznoe/debugging-android-devices.md)
 * [Google Spreadsheets JSON](raznoe/google-spreadsheets-json.md)
 * [htaccess](raznoe/htaccess.md)
