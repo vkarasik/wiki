@@ -15,6 +15,7 @@
 
 ## Bitrix
 
+* [Бизнес процессы](bitrix/biznes-processy.md)
 * [Обмен с 1С](bitrix/obmen-s-1s.md)
 * [Фильтр по пользовательскому свойству](bitrix/filtr-po-polzovatelskomu-svoistvu.md)
 * [Удалить записи из Журнала событий](bitrix/udalit-zapisi-iz-zhurnala-sobytii.md)
