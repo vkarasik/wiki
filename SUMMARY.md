@@ -47,3 +47,7 @@
 
 ## Photoshop
 
+## Git
+
+* [Setting](git/setting.md)
+
