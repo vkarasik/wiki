@@ -23,6 +23,7 @@
 
 ## PHP
 
+* [Snippets](php/snippets.md)
 * [Redirect](php/redirect.md)
 
 ## wordpress
