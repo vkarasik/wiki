@@ -8,6 +8,7 @@
 * [Chrome Extensions](javascript/chrome-extension.md)
 * [Webpack](javascript/webpack.md)
 * [React](javascript/react.md)
+* [Gulp](javascript/gulp.md)
 * [Java Script](javascript/date/README.md)
   * [Functions](javascript/date/functions.md)
   * [Arrays](javascript/date/arrays.md)
