@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Personal Wiki](README.md)
+* [Guideguide](guideguide.md)
 
 ## JavaScript
 
